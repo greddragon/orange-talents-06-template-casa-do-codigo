@@ -26,6 +26,11 @@ public class Autor {
 	private String descricao;
 
 	private LocalDateTime data_registro;
+	
+	@Deprecated
+	public Autor() {
+		
+	}
 
 	public Autor(@NotNull @NotBlank String nome, @NotNull @Email String email,
 			@NotNull @NotBlank @Length(max = 400) String descricao) {
@@ -35,6 +40,8 @@ public class Autor {
 		this.descricao = descricao;
 		this.data_registro =  LocalDateTime.now();
 	}
+
+	
 	
 	
 }

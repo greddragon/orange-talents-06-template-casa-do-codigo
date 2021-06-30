@@ -21,6 +21,7 @@ public class AutorDto {
 	@Length(max = 400)
 	private String descricao;
 
+
 	public AutorDto(@NotNull @NotBlank String nome, @NotNull @Email String email,
 			@NotNull @NotBlank @Length(max = 400) String descricao) {
 		super();
@@ -29,10 +30,25 @@ public class AutorDto {
 		this.descricao = descricao;
 	}
 
-	@Override
-	public String toString() {
-		return "AutorDto [nome=" + nome + ", email=" + email + ", descricao=" + descricao + "]";
+	
+
+	public String getNome() {
+		return nome;
 	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
 
 	public Autor toAutor() {
 		return new Autor(this.nome, this.email, this.descricao);
