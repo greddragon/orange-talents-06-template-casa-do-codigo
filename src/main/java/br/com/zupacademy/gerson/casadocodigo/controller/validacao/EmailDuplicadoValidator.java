@@ -13,11 +13,9 @@ import br.com.zupacademy.gerson.casadocodigo.repository.RepositoryAutor;
 
 @Component
 public class EmailDuplicadoValidator implements Validator {
-	
+
 	@Autowired
 	private RepositoryAutor repository;
-
-
 
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -28,10 +26,10 @@ public class EmailDuplicadoValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 
 		AutorDto a = (AutorDto) target;
-		
+
 		Optional<Autor> verificaAutor = repository.findByEmail(a.getEmail());
-		if(verificaAutor.isPresent()) {
-			errors.rejectValue("email",null, "email já cadastrado, não pode haver email iguais. ");
+		if (verificaAutor.isPresent()) {
+			errors.rejectValue("email", null, "email já cadastrado, não pode haver email iguais. ");
 		}
 
 	}

@@ -8,40 +8,37 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Autor {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotNull @NotBlank
+	@NotBlank
 	private String nome;
-	@NotNull @Email
+	@Email
 	private String email;
-	@NotNull @NotBlank @Length(max = 400)
+	@NotBlank
+	@Length(max = 400)
 	private String descricao;
 
+	@SuppressWarnings("unused")
 	private LocalDateTime data_registro;
-	
+
 	@Deprecated
 	public Autor() {
-		
+
 	}
 
-	public Autor(@NotNull @NotBlank String nome, @NotNull @Email String email,
-			@NotNull @NotBlank @Length(max = 400) String descricao) {
+	public Autor(@NotBlank String nome, @Email String email, @NotBlank @Length(max = 400) String descricao) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
-		this.data_registro =  LocalDateTime.now();
+		this.data_registro = LocalDateTime.now();
 	}
 
-	
-	
-	
 }

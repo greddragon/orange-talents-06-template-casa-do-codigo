@@ -12,11 +12,11 @@ import br.com.zupacademy.gerson.casadocodigo.model.Categoria;
 import br.com.zupacademy.gerson.casadocodigo.repository.RepositoryCategoria;
 
 @Component
-public class NomeCategoriaDuplicadoValidator implements Validator{
-	
+public class NomeCategoriaDuplicadoValidator implements Validator {
+
 	@Autowired
 	RepositoryCategoria repositoryCategoria;
-	
+
 	@Override
 	public boolean supports(Class<?> clazz) {
 		return CategoriaDto.class.equals(clazz);
@@ -24,15 +24,14 @@ public class NomeCategoriaDuplicadoValidator implements Validator{
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		
+
 		CategoriaDto cd = (CategoriaDto) target;
 		Optional<Categoria> categoria = repositoryCategoria.findByNome(cd.getNome());
-		
-		if(categoria.isPresent()) {
+
+		if (categoria.isPresent()) {
 			errors.rejectValue("nome", null, "Não pode existir Categorias com o mesmo nome");
 		}
-		
-		
+
 	}
 
 }

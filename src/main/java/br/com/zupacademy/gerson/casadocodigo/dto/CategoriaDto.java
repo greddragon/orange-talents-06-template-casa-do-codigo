@@ -5,11 +5,13 @@ import javax.validation.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import br.com.zupacademy.gerson.casadocodigo.controller.validacao.ValorUnico;
 import br.com.zupacademy.gerson.casadocodigo.model.Categoria;
 
 public class CategoriaDto {
 
 	@NotBlank
+	@ValorUnico(classe = Categoria.class, value = "nome")
 	private String nome;
 
 	@JsonCreator
@@ -21,11 +23,6 @@ public class CategoriaDto {
 
 	public String getNome() {
 		return nome;
-	}
-
-	@Override
-	public String toString() {
-		return "CategoriaDto [nome=" + nome + "]";
 	}
 
 	public Categoria toCategoria() {
