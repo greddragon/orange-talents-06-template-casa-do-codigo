@@ -41,4 +41,26 @@ public class Autor {
 		this.data_registro = LocalDateTime.now();
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public LocalDateTime getData_registro() {
+		return data_registro;
+	}
+	
+	
+
 }
