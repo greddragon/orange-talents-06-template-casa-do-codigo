@@ -29,8 +29,7 @@ public class ListaLivros {
 	}
 
 	public static List<ListaLivros> toLista(EntityManager em) {
-		TypedQuery<Livro> query = em.createQuery("SELECT l FROM Livro l", Livro.class);
-		List<Livro> listaResultado = query.getResultList();
+		List<Livro>  listaResultado = em.createQuery("SELECT l FROM Livro l", Livro.class).getResultList();
 
 	//	List<ListaLivros> listaLivros = new ArrayList<ListaLivros>();
 	//	listaResultado.forEach(livro -> {
