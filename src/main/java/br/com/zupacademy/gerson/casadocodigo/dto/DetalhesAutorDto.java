@@ -6,7 +6,7 @@ public class DetalhesAutorDto {
 
 	private String nome;
 	private String descricao;
-	
+
 	public DetalhesAutorDto(Autor autor) {
 		super();
 		this.nome = autor.getNome();
@@ -20,8 +20,5 @@ public class DetalhesAutorDto {
 	public String getDescricao() {
 		return descricao;
 	}
-	
-	
-	
 
 }

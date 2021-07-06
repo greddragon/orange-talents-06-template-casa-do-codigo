@@ -9,11 +9,11 @@ import br.com.zupacademy.gerson.casadocodigo.controller.validacao.ValorUnico;
 import br.com.zupacademy.gerson.casadocodigo.model.Pais;
 
 public class PaisDto {
-	
+
 	@NotBlank
 	@ValorUnico(classe = Pais.class, value = "nome")
 	private String nome;
-	
+
 	@JsonCreator
 	public PaisDto(@JsonProperty("nome") @NotBlank String nome) {
 		super();
@@ -21,13 +21,8 @@ public class PaisDto {
 	}
 
 	public Pais toPais() {
-		
-		return new Pais(this.nome);
+
+		return new Pais(nome);
 	}
 
-
-	
-	
-	
-	
 }

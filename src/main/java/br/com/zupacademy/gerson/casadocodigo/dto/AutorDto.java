@@ -39,7 +39,7 @@ public class AutorDto {
 	}
 
 	public Autor toAutor() {
-		return new Autor(this.nome, this.email, this.descricao);
+		return new Autor(nome, email, descricao);
 	}
 
 }

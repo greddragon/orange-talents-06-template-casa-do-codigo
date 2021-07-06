@@ -17,13 +17,13 @@ import br.com.zupacademy.gerson.casadocodigo.model.Estado;
 @RestController
 @RequestMapping("/estado")
 public class EstadoController {
-	
+
 	@PersistenceContext
 	EntityManager em;
-	
+
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastrar(@RequestBody @Valid EstadoDto request){
+	public ResponseEntity<?> cadastrar(@RequestBody @Valid EstadoDto request) {
 		Estado estado = request.toEstado(em);
 		em.persist(estado);
 		return ResponseEntity.ok().body(estado);

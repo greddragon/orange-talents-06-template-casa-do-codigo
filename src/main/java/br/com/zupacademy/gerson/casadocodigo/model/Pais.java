@@ -8,18 +8,18 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Pais {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
 	private String nome;
-	
+
 	@Deprecated
 	public Pais() {
-		
+
 	}
-	
+
 	public Pais(@NotNull String nome) {
 		super();
 		this.nome = nome;
@@ -32,11 +32,5 @@ public class Pais {
 	public String getNome() {
 		return nome;
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

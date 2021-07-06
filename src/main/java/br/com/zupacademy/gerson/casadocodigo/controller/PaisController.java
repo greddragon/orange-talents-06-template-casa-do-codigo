@@ -17,16 +17,15 @@ import br.com.zupacademy.gerson.casadocodigo.model.Pais;
 @RestController
 @RequestMapping("/pais")
 public class PaisController {
-	
+
 	@PersistenceContext
 	EntityManager em;
-	
+
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastrar(@RequestBody @Valid PaisDto request){
+	public ResponseEntity<?> cadastrar(@RequestBody @Valid PaisDto request) {
 		Pais pais = request.toPais();
 		em.persist(pais);
 		return ResponseEntity.ok().body(pais);
 	}
 }
-

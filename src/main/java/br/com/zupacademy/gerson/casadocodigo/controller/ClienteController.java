@@ -6,27 +6,27 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zupacademy.gerson.casadocodigo.dto.CategoriaDto;
-import br.com.zupacademy.gerson.casadocodigo.model.Categoria;
+import br.com.zupacademy.gerson.casadocodigo.dto.ClienteDto;
+import br.com.zupacademy.gerson.casadocodigo.model.Cliente;
 
 @RestController
-@RequestMapping(value = "/categoria")
-public class CategoriaController {
+@RequestMapping("/cadastro-cliente")
+public class ClienteController {
 
 	@PersistenceContext
 	EntityManager em;
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastrar(@RequestBody @Valid CategoriaDto request) {
-		Categoria categoria = request.toCategoria();
-		em.persist(categoria);
-		return ResponseEntity.ok().body(request);
+	public ResponseEntity<?> cadastrar(@RequestBody @Valid ClienteDto request) {
+		Cliente cliente = request.toCliente(em);
+		em.persist(cliente);
+		return ResponseEntity.ok().body(cliente.getId());
 	}
+
 }

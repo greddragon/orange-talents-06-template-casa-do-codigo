@@ -25,7 +25,6 @@ public class Autor {
 	@Length(max = 400)
 	private String descricao;
 
-	@SuppressWarnings("unused")
 	private LocalDateTime data_registro;
 
 	@Deprecated
@@ -60,7 +59,5 @@ public class Autor {
 	public LocalDateTime getData_registro() {
 		return data_registro;
 	}
-	
-	
 
 }

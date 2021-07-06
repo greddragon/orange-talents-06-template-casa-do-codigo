@@ -69,33 +69,19 @@ public class LivroDto {
 		this.id_categoria = id_categoria;
 		this.id_autor = id_autor;
 	}
-	
-	
-	
+
 	public void setData_publicacao(LocalDate data_publicacao) {
 		this.data_publicacao = data_publicacao;
 	}
 
-
-
-	@Override
-	public String toString() {
-		return "LivroDto [titulo=" + titulo + ", resumo=" + resumo + ", sumario=" + sumario + ", preco=" + preco
-				+ ", n_paginas=" + n_paginas + ", isbn=" + isbn + ", data_publicacao=" + data_publicacao
-				+ ", id_categoria=" + id_categoria + ", id_autor=" + id_autor + "]";
-	}
-
-
-
 	public Livro toLivro(EntityManager em) {
 		Categoria c = em.find(Categoria.class, id_categoria);
 		Autor a = em.find(Autor.class, id_autor);
-		
+
 		Assert.state(c != null, "Categoria não existe");
 		Assert.state(a != null, "autor não existe");
-		
-		return new Livro(this.titulo, this.resumo, this.sumario, this.preco, this.n_paginas,this.isbn,this.data_publicacao,c,a);
+
+		return new Livro(titulo, resumo, sumario, preco, n_paginas, isbn, data_publicacao, c, a);
 	}
 
-	
 }

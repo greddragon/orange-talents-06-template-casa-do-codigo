@@ -26,7 +26,7 @@ public class CategoriaDto {
 	}
 
 	public Categoria toCategoria() {
-		return new Categoria(this.nome);
+		return new Categoria(nome);
 	}
 
 }
